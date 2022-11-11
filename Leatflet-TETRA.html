@@ -16,6 +16,11 @@
     </body>
 
     <script>
+        app.UseCors(builder => builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
         var map = L.map('map', {
           preferCanvas: true // recommended when loading large layers.
         });
@@ -37,7 +42,7 @@
         });
       
         // Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-        kmz.load('https://drive.google.com/file/d/1hZF8BfAPUcmgmQ3oxHxEN9lchWXQZotP/view?usp=sharing');
+        kmz.load('https://raruto.github.io/leaflet-kmz/examples/regions.kmz');
       
         var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
     </script>
